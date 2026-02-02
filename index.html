@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Inscription - Formation Informatique KOUMRA</title>
+  <style>
+    :root{
+      --primary:#0b5ed7;
+      --secondary:#0dcaf0;
+      --dark:#0f172a;
+      --muted:#64748b;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --success:#16a34a;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: linear-gradient(120deg, #f8fafc, #eef2ff);
+      color: var(--dark);
+    }
+    .container{
+      width:min(1050px, 92%);
+      margin:auto;
+      padding:24px 0 50px;
+    }
+    .top{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 40px rgba(2,6,23,.06);
+      position:relative;
+      overflow:hidden;
+    }
+    .top::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle at 10% 10%, rgba(13,202,240,.18), transparent 40%),
+                  radial-gradient(circle at 90% 20%, rgba(11,94,215,.18), transparent 40%),
+                  radial-gradient(circle at 30% 90%, rgba(22,163,74,.12), transparent 45%);
+      pointer-events:none;
+    }
+    .top-content{position:relative; z-index:1}
+    .header{
+      text-align:center;
+      margin-bottom: 12px;
+    }
+    .header h1{
+      margin:0;
+      font-size: 18px;
+      text-transform: uppercase;
+      letter-spacing:.4px;
+    }
+    .header p{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      font-size: 13px;
+    }
+
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+      margin-top: 16px;
+      align-items: start;
+    }
+    .card{
+      background: var(--card);
+      border:1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+      box-shadow: 0 12px 40px rgba(2,6,23,.06);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size: 18px;
+    }
+    .info{
+      display:grid;
+      gap:10px;
+      font-size: 14px;
+      color: var(--dark);
+      font-weight:700;
+    }
+    .info div{
+      border:1px solid var(--border);
+      border-radius: 14px;
+      padding: 12px 12px;
+      background:#f8fafc;
+      display:flex;
+      justify-content: space-between;
+      gap:10px;
+    }
+    .info b{
+      color: var(--muted);
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing:.3px;
+    }
+    .price{
+      margin-top: 10px;
+      border-radius: 16px;
+      padding: 12px;
+      background: linear-gradient(135deg, rgba(11,94,215,.10), rgba(13,202,240,.10));
+      border: 1px solid rgba(11,94,215,.18);
+    }
+    .price .big{
+      font-size: 26px;
+      font-weight: 950;
+      color: var(--primary);
+    }
+    .price .small{
+      margin-top:4px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight:800;
+      line-height:1.5;
+    }
+
+    form{
+      display:grid;
+      gap: 12px;
+    }
+    label{
+      font-weight:900;
+      font-size: 13px;
+      color: var(--dark);
+    }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      outline:none;
+      font-size: 14px;
+      background:#fff;
+    }
+    textarea{min-height: 90px; resize: vertical}
+    .row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .btns{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      margin-top: 4px;
+    }
+    button{
+      border:none;
+      cursor:pointer;
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-weight:950;
+      font-size: 14px;
+      transition:.2s;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+    }
+    .btn-primary{
+      background: linear-gradient(135deg, var(--primary), #2563eb);
+      color:#fff;
+      box-shadow: 0 10px 25px rgba(37,99,235,.25);
+    }
+    .btn-primary:hover{transform: translateY(-1px)}
+    .btn-outline{
+      background:#fff;
+      border:1px solid var(--border);
+      color:#0f172a;
+    }
+    .note{
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.6;
+    }
+
+    @media(max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="top">
+      <div class="top-content">
+        <div class="header">
+          <h1>RÉPUBLIQUE DU TCHAD</h1>
+          <p>Unité – Travail – Progrès</p>
+        </div>
+
+        <div class="hero">
+          <!-- Info formation -->
+          <div class="card">
+            <h2>📢 Formation Informatique — KOUMRA</h2>
+            <p class="note">
+              Formation pratique pour débutants et intermédiaires : Windows, bureautique,
+              Internet, IA selon le travail, maintenance informatique + cybersécurité.
+            </p>
+
+            <div class="info">
+              <div><b>Lieu</b> <span>KOUMRA</span></div>
+              <div><b>Date</b> <span>Mi-Juillet 2026 → Septembre 2026</span></div>
+              <div><b>Organisateur</b> <span>Guiryenouba Zacharie</span></div>
+              <div><b>Suivi</b> <span>Ramadjita Alain</span></div>
+              <div><b>WhatsApp</b> <span>66525774 / 65674226</span></div>
+              <div><b>Email</b> <span>guiryenouba@gmail.com</span></div>
+            </div>
+
+            <div class="price">
+              <div class="big">7 500 FCFA / mois</div>
+              <div class="small">Durée : 2 mois • Total : 15 000 FCFA • Places limitées</div>
+            </div>
+
+            <p class="note">
+              ⚠️ L’inscription se fait via WhatsApp : remplissez le formulaire puis cliquez sur
+              <b>“Envoyer sur WhatsApp”</b>.
+            </p>
+          </div>
+
+          <!-- Formulaire -->
+          <div class="card">
+            <h2>📝 Formulaire d’inscription</h2>
+
+            <form id="formInscription">
+              <div>
+                <label>Nom & Prénom</label>
+                <input id="nom" type="text" placeholder="Ex: Mahamat Ali" required />
+              </div>
+
+              <div class="row">
+                <div>
+                  <label>Numéro WhatsApp</label>
+                  <input id="numero" type="tel" placeholder="Ex: 66xxxxxx" required />
+                </div>
+                <div>
+                  <label>Niveau</label>
+                  <select id="niveau" required>
+                    <option value="">-- Choisir --</option>
+                    <option>Débutant</option>
+                    <option>Intermédiaire</option>
+                    <option>Avancé</option>
+                  </select>
+                </div>
+              </div>
+
+              <div>
+                <label>Branche souhaitée (optionnel)</label>
+                <select id="branche">
+                  <option value="">-- Choisir --</option>
+                  <option>Formation Complète</option>
+                  <option>Une Seule Partie</option>
+                  <option>Maintenance Informatique</option>
+                  <option>Toutes les branches</option>
+                </select>
+              </div>
+
+              <div>
+                <label>Message (optionnel)</label>
+                <textarea id="message" placeholder="Ex: Je veux m'inscrire, je suis disponible les après-midis..."></textarea>
+              </div>
+
+              <div class="btns">
+                <button type="button" class="btn-primary" onclick="envoyerWhatsApp()">
+                  💬 Envoyer sur WhatsApp
+                </button>
+                <button type="reset" class="btn-outline">↩️ Réinitialiser</button>
+              </div>
+
+              <p class="note">
+                🔒 Vos informations servent uniquement à l’inscription à la formation.
+              </p>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function envoyerWhatsApp() {
+      const nom = document.getElementById("nom").value.trim();
+      const numero = document.getElementById("numero").value.trim();
+      const niveau = document.getElementById("niveau").value.trim();
+      const branche = document.getElementById("branche").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      if (!nom || !numero || !niveau) {
+        alert("Veuillez remplir : Nom, Numéro WhatsApp et Niveau.");
+        return;
+      }
+
+      const texte =
+`Bonjour, je souhaite m’inscrire à la Formation Informatique à KOUMRA.
+
+👤 Nom : ${nom}
+📱 Mon WhatsApp : ${numero}
+🎓 Niveau : ${niveau}
+📚 Branche : ${branche || "Non précisé"}
+🗓️ Période : Mi-Juillet 2026 → Septembre 2026
+
+📝 Message :
+${message || "Aucun message"}`;
+
+      // Numéro du formateur principal (Guiryenouba Zacharie)
+      const whatsappNumber = "23566525774";
+      const url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(texte);
+
+      window.open(url, "_blank");
+    }
+  </script>
+</body>
+</html>
